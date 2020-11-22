@@ -1,0 +1,75 @@
+[16-Oct-2020 16:57:26 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('config', Array)
+#5 /hom in /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[16-Oct-2020 16:57:32 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('config', Array)
+#5 /hom in /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[16-Oct-2020 16:57:37 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('config', Array)
+#5 /hom in /home/t7p4ne2dd8jl/public_html/dxbtours/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[22-Oct-2020 07:26:34 UTC] PHP Fatal error:  Uncaught ReflectionException: Class translator does not exist in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('translator')
+#1 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('translator')
+#2 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('translator', Array, true)
+#3 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('translator', Array)
+#4 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('translator', Array)
+#5 /home/t7p4ne2dd8jl/public_html/ven in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[22-Oct-2020 07:38:34 UTC] PHP Fatal error:  Uncaught ReflectionException: Class translator does not exist in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('translator')
+#1 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('translator')
+#2 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('translator', Array, true)
+#3 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('translator', Array)
+#4 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('translator', Array)
+#5 /home/t7p4ne2dd8jl/public_html/ven in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[22-Oct-2020 07:39:03 UTC] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): read of 5352 bytes failed with errno=12 Cannot allocate memory in /home/t7p4ne2dd8jl/public_html/vendor/composer/ClassLoader.php:444
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/vendor/composer/ClassLoader.php(444): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'include(): read...', '/home/t7p4ne2dd...', 444, Array)
+#1 /home/t7p4ne2dd8jl/public_html/vendor/composer/ClassLoader.php(444): include()
+#2 /home/t7p4ne2dd8jl/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/t7p4ne2dd...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('Illuminate\\View...')
+#4 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/View/Factory.php(15): spl_autoload_call('Illuminate\\View...')
+#5 /home/t7p4ne2dd8jl/public_html/vendor/composer/ClassLoader.php(444): include('/home/t7p4ne2dd...')
+#6 /home/t7p4ne2dd8jl/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includ in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/View/Factory.php on line 15
+[22-Oct-2020 08:58:01 UTC] PHP Notice:  include(): read of 503 bytes failed with errno=12 Cannot allocate memory in /home/t7p4ne2dd8jl/public_html/vendor/composer/ClassLoader.php on line 444
+[22-Oct-2020 08:58:01 UTC] PHP Warning:  include(): Failed opening '/home/t7p4ne2dd8jl/public_html/vendor/composer/../vlucas/phpdotenv/src/Loader/LoaderInterface.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/t7p4ne2dd8jl/public_html/vendor/composer/ClassLoader.php on line 444
+[22-Oct-2020 08:58:02 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('config', Array)
+#5 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/sr in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[22-Oct-2020 09:27:00 UTC] PHP Fatal error:  Uncaught ReflectionException: Class translator does not exist in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('translator')
+#1 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('translator')
+#2 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('translator', Array, true)
+#3 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('translator', Array)
+#4 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('translator', Array)
+#5 /home/t7p4ne2dd8jl/public_html/ven in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[22-Oct-2020 09:38:33 UTC] PHP Fatal error:  Uncaught ReflectionException: Class translator does not exist in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('translator')
+#1 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('translator')
+#2 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('translator', Array, true)
+#3 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('translator', Array)
+#4 /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Container->make('translator', Array)
+#5 /home/t7p4ne2dd8jl/public_html/ven in /home/t7p4ne2dd8jl/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
