@@ -12,6 +12,6 @@ class settingsController extends Controller
     public function sitemap()
     {
     	$path=public_path().'/sitemap/sitemap.xml';
-     SitemapGenerator::create('https://dxbtoursntravel.ael/')->writeToFile($path);
+     SitemapGenerator::create('https://dxbtoursntravel.ae/')->writeToFile($path);
     }
 }

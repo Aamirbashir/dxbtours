@@ -7,7 +7,7 @@
       
       <h2>{{$product->name}}</h2>
      <p><a href="{{url()->previous()}}">Back</a> &nbsp; / &nbsp; {{$product->name}}</p>
-   
+
     </div>
   </div>
 </section>
@@ -62,9 +62,10 @@
 <!-- content-with-photo4 block -->
 <section class="w3l-content-with-photo-4" id="about">
     <div id="content-with-photo4-block" class="py-5"> 
-        <div class="container py-md-3">
+      
+        <div class="container py-md-18">
             <div class="cwp4-two row">
-                 <div class="cwp4-image col-lg-6 pl-lg-5 mt-lg-0 mt-5">
+                 <div class="cwp4-image col-lg-8 pl-lg-8 mt-lg-0 mt-8">
                    @if(count($product->gallery()))
                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -86,17 +87,50 @@
 @else
 <img src="{{ $product->logoFile ? route('get-file',['id' => \Illuminate\Support\Facades\Crypt::encrypt($product->logoFile->id)]) : 'https://via.placeholder.com/150' }}" class="img-fluid" alt="" />
 @endif
-                    
-                </div>
-                <div class="cwp4-text col-lg-6 " >
-                        <h1 class="head">{{$product->name}} {{$product->size}}</h1>
-
-
-                        <span class="padd">AED <?php if($product->discount_price>0)
-                              echo '<b><s>'.$product->product_price.'</s></b>';
-                              $price=round($product->product_price-($product->product_price*$product->discount_price/100));
-                              ?>
-                              <?php echo $price?>/{{$product->price_criteria}}</span>
+<div class="col-md-12"
+  <span class="heading">Reviews(<?php echo rand(1,1000); ?>)</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+</div></div>
+                <div class="col-lg-4" >
+                  <h5 class="head">{{$product->name}} {{$product->size}}</h5>
+                  <span class="padd">AED <?php if($product->discount_price>0)
+                        echo '<b><s>'.$product->product_price.'</s></b>';
+                        $price=round($product->product_price-($product->product_price*$product->discount_price/100));
+                        ?>
+                        <?php echo $price?>/{{$product->price_criteria}}</span>
+                   <hr>
+                 <div class="col-md-12"
+                    <form class="">
+                      <div class="form-inline">
+                      <label for="inlineFormEmail" class="m-1">Adult</label>
+                      <input type="number" width="20" value="1" class="form-control m-2 form-quantitiy" id="inlineFormEmail">
+                      <label for="inlineFormEmail" class="m-2">X</label>
+                      <input type="text" readonly value="{{$price}}" class="form-control m-2 form-price" id="inlineFormPassword">
+                    </div>
+                    <div class="form-inline">
+                      <label for="inlineFormEmail" class="m-1">Kids</label>
+                      <input type="number" width="20" value="1" class="form-control m-2 form-quantitiy" id="inlineFormEmail">
+                      <label for="inlineFormEmail" class="m-2">X</label>
+                      <input type="text" readonly value="{{$price}}" class="form-control m-2 form-price" id="inlineFormPassword">
+                      
+                    </div>
+                    <div class="form-inline">
+                      <label for="inlineFormEmail" class="m-1">Infant</label>
+                      <input type="number" width="20" value="1" class="form-control m-2 form-quantitiy" id="inlineFormEmail">
+                      <label for="inlineFormEmail" class="m-2">X</label>
+                      <input type="text" readonly value="0" class="form-control m-2 form-price" id="inlineFormPassword">
+                      
+                    </div>
+                    </form>
+                 </div>
+            </div>  
+            <div class="cwp4-two row">
+                <div class="cwp4-text col-lg-6" >
+                    <hr>
                
                     <h5>Offers Includes:</h5>
                     {!!$product->long_description!!}

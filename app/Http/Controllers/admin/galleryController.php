@@ -70,7 +70,7 @@ public function add($id = null){
             $o_id = Crypt::decrypt($id);
             $rules['name'] = 'required|string|max:255|unique:services_list,name,' . $id . ',id,deleted_at,NULL';
             $parm = "Edit";
-            $obj = gallery::find($id);
+            $obj = gallery::find($o_id);
         }
         $validate = Validator::make($data,$rules);
         if($validate->fails()){

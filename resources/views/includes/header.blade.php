@@ -52,6 +52,7 @@
                 <li class="top_li"><span class="fa fa-mobile"></span><a href="tel:+971525170000">+971 52 517 0000</a> </li>
                 {{-- <li class="top_li1"><a href="#">Login</a></li>
                 <li class="top_li2"><a href="#">Register</a></li> --}}
+                <li class="top_li2"><div id="google_translate_element"></div></li>
         </div>
         
     </header>

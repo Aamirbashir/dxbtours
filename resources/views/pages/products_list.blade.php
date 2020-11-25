@@ -19,10 +19,33 @@
       <p class="my-3 head">{!!$services->long_description!!}</p>
     </div>
             <div class="row mt-5 pt-3">
-                @foreach($products as $product)
+                @foreach($products as $Mainkey=>$product)
+                
                 <div class="picRound grids4-info col-lg-4 col-md-6 mt-md-0 mt-5">
+                  @if(count($product->gallery()))
+                <div id="carouselExampleControls_{{$Mainkey}}" class="carousel slide" data-ride="carousel" data-interval="3000">
+  <div class="carousel-inner">
+    @foreach ($product->gallery() as $key=>$item)
+    <div class="carousel-item <?php if($key==0) echo 'active';?>">
+    <img src="{{asset('storage/app/'.$item->imageUrl)}}" alt="{{$item->name}}" class="img-fluid" alt="" />
+    </div>
+     @endforeach
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls_{{$Mainkey}}" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls_{{$Mainkey}}" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+@else
+
                         <a href="{{route('pages.products',$product->product_slug)}}"><img src="{{ $product->logoFile ? route('get-file',['id' => \Illuminate\Support\Facades\Crypt::encrypt($product->logoFile->id)]) : 'https://via.placeholder.com/150' }}')" class="img-fluid" alt=""></a>
-                       <ul class="location-top">
+
+@endif                        
+<ul class="location-top">
                          @if($product->number_of_pax>0)
                             <li class="rent">{{$product->size}}</li>
                             <li class="open-1">{{$product->number_of_pax}} Pax</li>
@@ -33,24 +56,26 @@
                      
 
                         <div class="info-bg">
-                            <h5><a href="#">{{$product->name}}</a></h5>
+                            <h5><a href="{{route('pages.products',$product->product_slug)}}">{{$product->name}}</a></h5>
                             <p>AED <?php if($product->discount_price>0)
                               echo '<b><s>'.$product->product_price.'</s></b>';
                               $price=round($product->product_price-($product->product_price*$product->discount_price/100));
                               ?>
-                              <?php echo $price?> /{{$product->price_criteria}}</p>
+                              <?php echo $price?> /{{$product->price_criteria}}
+                            
+                            </p>
+                            
+                        
+<span class="heading">Reviews(<?php echo rand(1,1000); ?>)</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
                             <hr>
                             <div class="col-md-12">
                                 <a href="{{route('pages.products',$product->product_slug)}}"  class="btn btn-booking">See Details</a>
                             </div>
-                          <!--   <ul>
-                                <li><span class="fa fa-bed"></span> 4 Rooms</li>
-                                <li><span class="fa fa-bath"></span>Saloon</li>
-                                <li><span class="fa fa-ship"></span> Jacuzzi</li>
-                                 <li><span class="fa fa-ship"></span> 16 Knots</li>
-                                <li><span class="fa fa-share-square-o"></span> Sun Bathing on Fly Deck</li>
-                                <li><span class="fa fa-share-square-o"></span> BBQ on Fly Desk</li>
-                            </ul> -->
                         </div>
                     </div>
                     @endforeach

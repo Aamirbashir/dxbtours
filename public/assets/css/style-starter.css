@@ -9,6 +9,21 @@ Author URL: http://w3layouts.com
  */
 /* FONT PATH
  * -------------------------- */
+ .form-quantitiy
+ {
+   width: 23% !important;
+ }
+ .form-price
+ {
+   width: 35% !important;
+ }
+ .checked {
+     color: var(--opposite-color) !important;
+ }
+ .heading-product
+ {
+   color: #eee;
+ }
     .float{
       position: fixed;
     width: 60px;
