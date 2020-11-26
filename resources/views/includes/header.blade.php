@@ -20,6 +20,10 @@
     <!-- //web fonts -->
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('public/assets/css/style-starter.css') }}">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180685244-1"></script>
 <script>
@@ -30,7 +34,7 @@
   gtag('config', 'UA-180685244-1');
 </script>
 
-</script>
+
 
   </head>
   <body>

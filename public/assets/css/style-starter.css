@@ -9,13 +9,43 @@ Author URL: http://w3layouts.com
  */
 /* FONT PATH
  * -------------------------- */
+ input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  height:auto;
+} 
+ .reviews
+ {
+  position: absolute;
+  top: 8px;
+  left: 38px;
+  font-size: 18px;
+  color: #fff;
+ }
+ .bookingForm
+ {
+   background-color: #fff;
+ }
+ .labl {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  line-height: 26px;
+
+  width: 10%;
+}
+
  .form-quantitiy
  {
    width: 23% !important;
+  margin: 5px;
+
  }
  .form-price
  {
    width: 35% !important;
+  
+
  }
  .checked {
      color: var(--opposite-color) !important;
@@ -9816,7 +9846,7 @@ span.diff {
   background: var(--opposite-color); }
 
 .btn-theme3:hover {
-  background: var(--theme-color);
+
   border: 2px solid var(--theme-color); }
 
 .btn-theme3:focus {

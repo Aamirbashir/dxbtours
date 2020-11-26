@@ -87,7 +87,7 @@
 @else
 <img src="{{ $product->logoFile ? route('get-file',['id' => \Illuminate\Support\Facades\Crypt::encrypt($product->logoFile->id)]) : 'https://via.placeholder.com/150' }}" class="img-fluid" alt="" />
 @endif
-<div class="col-md-12"
+<div class="reviews"
   <span class="heading">Reviews(<?php echo rand(1,1000); ?>)</span>
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>
@@ -96,50 +96,90 @@
 <span class="fa fa-star"></span>
 </div></div>
                 <div class="col-lg-4" >
-                  <h5 class="head">{{$product->name}} {{$product->size}}</h5>
-                  <span class="padd">AED <?php if($product->discount_price>0)
+                 
+                  <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <div>
+                        <h6 class="my-0">{{$product->name}} {{$product->size}}</h6>
+                        {{-- <small class="text-muted">Brief description</small> --}}
+                      </div>
+                      <span class="text-muted">AED <?php if($product->discount_price>0)
                         echo '<b><s>'.$product->product_price.'</s></b>';
                         $price=round($product->product_price-($product->product_price*$product->discount_price/100));
+                        $kidsprice=round($product->kids_price-($product->kids_price*$product->discount_price/100));
                         ?>
                         <?php echo $price?>/{{$product->price_criteria}}</span>
-                   <hr>
-                 <div class="col-md-12"
-                    <form class="">
+                      <?php 
+                      if($product->price_criteria=='Person')
+                      $product->price_criteria='Adult';
+                      ?>
+                    </li>
+                    <form action="gasdfa">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      
                       <div class="form-inline">
-                      <label for="inlineFormEmail" class="m-1">Adult</label>
-                      <input type="number" width="20" value="1" class="form-control m-2 form-quantitiy" id="inlineFormEmail">
-                      <label for="inlineFormEmail" class="m-2">X</label>
-                      <input type="text" readonly value="{{$price}}" class="form-control m-2 form-price" id="inlineFormPassword">
+                        <label for="inlineFormEmail" class="labl">{{$product->price_criteria}}:</label>
+                        <input type="number"  value="1" class="form-control m-2 form-quantitiy"  name="adultNumber" id="adultNumber">
+                        <label for="inlineFormEmail">X</label>
+                        <input type="text" readonly value="{{$price}}" class="form-control m-2 form-price" name="adultPrice" id="adultPrice">
+                      </div>
+                    </li>
+                    @if($product->kids_price==0)
+                  <?php  $display='none !important';?>
+                    @endif
+                    <div class="kidsSection" style="display:<?php echo $display ?? ''?>">
+                  <li class="list-group-item d-flex justify-content-between lh-condensed" >
+                      <div class="form-inline">
+                        <label for="inlineFormEmail" class="labl my-0">Kids:</label>
+                        <input type="number"  value="0" class="form-control form-quantitiy"  name="kidsNumber" id="kidsNumber">
+                        <label for="inlineFormEmail" >X</label>
+                      <input type="text" name="kidsPrice" readonly value="{{$price}}" class="form-control m-2 form-price" id="kidsPrice">
+                      {{-- <small class="text-muted">Below 10</small> --}}
+                      </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                      <div class="text-success">
+                        <h6 class="my-0">Kids Below 3</h6>
+                        {{-- <small>EXAMPLECODE</small> --}}
+                      </div>
+                      <span class="text-success">Free</span>
+                    </li>
+                  </div>
+                   
+                    <li class="list-group-item d-flex justify-content-between">
+                      <span>Total (AED)</span>
+                      <strong id="total_label"></strong>
+                      <input type="hidden" id="totalPrice" name="totalPrice" value="">
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                     <input type="submit" class="btn btn-secondary btn-theme3 mt-3" value="Book Now" type="submit">
+                        
+                 
+                      {{-- <a class="btn btn-secondary btn-theme3 mt-3" onclick="WhatsAppBooking('{!!$product->name!!}','{!!$product->price_criteria!!}')"><span class="fa fa-whatsapp"></span>Whatsapp</a> --}}
+                    </li>
+                  </form>   
+                  </ul>
+                
+                  {{-- <form class="card p-2">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Promo code">
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-secondary">Redeem</button>
+                      </div>
                     </div>
-                    <div class="form-inline">
-                      <label for="inlineFormEmail" class="m-1">Kids</label>
-                      <input type="number" width="20" value="1" class="form-control m-2 form-quantitiy" id="inlineFormEmail">
-                      <label for="inlineFormEmail" class="m-2">X</label>
-                      <input type="text" readonly value="{{$price}}" class="form-control m-2 form-price" id="inlineFormPassword">
-                      
-                    </div>
-                    <div class="form-inline">
-                      <label for="inlineFormEmail" class="m-1">Infant</label>
-                      <input type="number" width="20" value="1" class="form-control m-2 form-quantitiy" id="inlineFormEmail">
-                      <label for="inlineFormEmail" class="m-2">X</label>
-                      <input type="text" readonly value="0" class="form-control m-2 form-price" id="inlineFormPassword">
-                      
-                    </div>
-                    </form>
-                 </div>
+                  </form> --}}
+                 
+               
             </div>  
-            <div class="cwp4-two row">
-                <div class="cwp4-text col-lg-6" >
+            <div class="cwp4-two">
+                <div class="cwp4-text col-lg-8" >
                     <hr>
                
                     <h5>Offers Includes:</h5>
                     {!!$product->long_description!!}
           
-                        
-<button type="button" class="btn btn-secondary btn-theme3 mt-3" onclick="showmodal('{{$product->name}}');">
- <span class="fa fa-book"></span> Book Now
-</button>
-                    
+    
+                
                     <a class="btn btn-secondary btn-theme3 mt-3" target="_blank" href="https://api.whatsapp.com/send?phone=971525170000&text=I want to know more about {{$product->name}}"><span class="fa fa-whatsapp"></span> Whatsapp</a>
                     <a class="btn btn-secondary btn-theme3 mt-3" href="tel:+971525170000"><span class="fa fa-phone"></span> Call</a>
                 </div>
@@ -149,12 +189,65 @@
     </div>
 </section>
 <script>
+  $(document).ready(function() {
+    var  adultNumber=Number($('#adultNumber').val());
+    var  adultPrice=Number($('#adultPrice').val());
+    var  adultTotal=adultNumber*adultPrice;
+    var  kidsNumber=Number($('#kidsNumber').val());
+    var  kidsPrice=Number($('#kidsPrice').val());
+    var  kidsTotal=kidsNumber*kidsPrice;
+    var  total=adultTotal+kidsTotal;
+     $('#total_label').html(total.toFixed(2));
+     $('#totalPrice').val(total.toFixed(2));
+
+});
+
+$("#adultNumber").bind('change', function () {
+  if($('#adultNumber').val()<1)
+  $('#adultNumber').val(1)
+  var  adultNumber=Number($('#adultNumber').val());
+    var  adultPrice=Number($('#adultPrice').val());
+    var  adultTotal=adultNumber*adultPrice;
+    var  kidsNumber=Number($('#kidsNumber').val());
+    var  kidsPrice=Number($('#kidsPrice').val());
+    var  kidsTotal=kidsNumber*kidsPrice;
+    var  total=adultTotal+kidsTotal;
+     $('#total_label').html(total.toFixed(2));           
+});
+$("#kidsNumber").bind('change', function () {
+  if($('#kidsNumber').val()<0)
+  $('#kidsNumber').val(0)
+
+  var  adultNumber=Number($('#adultNumber').val());
+    var  adultPrice=Number($('#adultPrice').val());
+    var  adultTotal=adultNumber*adultPrice;
+    var  kidsNumber=Number($('#kidsNumber').val());
+    var  kidsPrice=Number($('#kidsPrice').val());
+    var  kidsTotal=kidsNumber*kidsPrice;
+    var  total=adultTotal+kidsTotal;
+     $('#total_label').html(total.toFixed(2));           
+});
+function WhatsAppBooking(name,criteria){
+  
+  var  adultNumber=Number($('#adultNumber').val());
+    var  adultPrice=Number($('#adultPrice').val());
+    var  adultTotal=adultNumber*adultPrice;
+    var  kidsNumber=Number($('#kidsNumber').val());
+    var  kidsPrice=Number($('#kidsPrice').val());
+    var  kidsTotal=kidsNumber*kidsPrice;
+    var  total=adultTotal+kidsTotal;
+     $('#total_label').html(total.toFixed(2));  
+   var message=name+'%0aTotal '+criteria+':'+adultNumber+'%0aTotal Kids:'+kidsNumber+'%0aTotal:'+total;
+var win = window.open('https://api.whatsapp.com/send?phone=971525170000&text=I want to Book %0a'+message, '_blank');
+}
+
+  
   function showmodal(name)
   {
     
     document.getElementById('service_id').value=name;
     $('#exampleModal').modal('show');
-
+    
   }
 </script>
 @endsection

@@ -164,6 +164,7 @@ Route::group(["as" => "pages."], function () {
     //Route::get('/services', 'MainController@services')->name('services');
 
     Route::get('/gallery', 'MainController@gallery')->name('gallery');
+    Route::get('/bookings', 'bookingsfrontController@index')->name('bookings');
 
 });
 
