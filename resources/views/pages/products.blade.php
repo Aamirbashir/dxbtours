@@ -171,11 +171,12 @@
                  
                
             </div>  
-            <div class="cwp4-two">
-                <div class="cwp4-text col-lg-8" >
-                    <hr>
+            <div class="row locations-1">
+                <div class="cwp4-text col-md-8" >
+                   
                
                     <h5>Offers Includes:</h5>
+                    <hr>
                     {!!$product->long_description!!}
           
     
@@ -183,7 +184,44 @@
                     <a class="btn btn-secondary btn-theme3 mt-3" target="_blank" href="https://api.whatsapp.com/send?phone=971525170000&text=I want to know more about {{$product->name}}"><span class="fa fa-whatsapp"></span> Whatsapp</a>
                     <a class="btn btn-secondary btn-theme3 mt-3" href="tel:+971525170000"><span class="fa fa-phone"></span> Call</a>
                 </div>
-              
+                <div class="col-md-4 ">
+                 
+                  <h5>See Also</h5>
+                  <hr>
+                  @foreach (App\products::where('id','!=',$product->id)->limit(3)->get() as $Mainkey=>$item)
+                      
+                 
+                
+                  <div class="grids-4">
+                
+  
+                          <a href="{{route('pages.products',$item->product_slug)}}"><img src="{{ $item->logoFile ? route('get-file',['id' => \Illuminate\Support\Facades\Crypt::encrypt($item->logoFile->id)]) : 'https://via.placeholder.com/150' }}')" class="img-responsive" alt=""></a>                    
+  
+                       
+  
+                          <div class="info-bg">
+                              <h5><a href="{{route('pages.products',$item->product_slug)}}">{{$item->name}}</a></h5>
+                              <p>AED <?php if($item->discount_price>0)
+                                echo '<b><s>'.$item->product_price.'</s></b>';
+                                $price=round($item->product_price-($item->product_price*$item->discount_price/100));
+                                ?>
+                                <?php echo $price?> /{{$item->price_criteria}}
+                              
+                              </p>
+                              
+                          
+  <span class="heading">Reviews(<?php echo rand(1,1000); ?>)</span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star"></span>
+                         
+                          </div>
+                      </div>
+                      @endforeach
+
+               </div>
             </div>
         </div>
     </div>
