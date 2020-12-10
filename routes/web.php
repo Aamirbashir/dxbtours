@@ -165,6 +165,7 @@ Route::group(["as" => "pages."], function () {
 
     Route::get('/gallery', 'MainController@gallery')->name('gallery');
     Route::get('/bookings', 'bookingsfrontController@index')->name('bookings');
+    ROute::get('postBooking','bookingsfrontController@getBookingForm')->name('postBooking');
     Route::get('/thankyou', function(){
       return view('pages.thankyou');
     });
@@ -177,5 +178,17 @@ Route::get('get-file/{id?}','fileController@getFile')->name('get-file');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/sendEmail','HomeController@sendEmail');
+Route::post('saveBookings','bookingsfrontController@saveBookings');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/sendEmail','HomeController@sendEmail');
+Route::get('paypaltest',function(){
+  return view('paypaltest');
+});
+Route::get('paypal/ec-checkout', 'PayPalController@getExpressCheckout');
+Route::get('paypal/ec-checkout-success', 'PayPalController@getExpressCheckoutSuccess');
+Route::get('paypal/adaptive-pay', 'PayPalController@getAdaptivePay');
+Route::post('paypal/notify', 'PayPalController@notify');
 
 

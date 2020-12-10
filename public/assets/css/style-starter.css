@@ -9,6 +9,44 @@ Author URL: http://w3layouts.com
  */
 /* FONT PATH
  * -------------------------- */
+
+ .modalbtn
+ {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color:var(--opposite-color) !important;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.goog-te-combo
+{
+  max-height: 24px !important;
+}
+ .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    } 
+    .goog-logo-link
+    {
+       display: none !important;
+    }
+
+    .skiptranslate
+    {
+      color: var(--opposite-color) !important;
+    }
+}
+body {
+    top: 0px !important; 
+    }
  input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   height:auto;
@@ -10565,7 +10603,7 @@ h4.sub-title {
     top: 0.9em; } }
 
 .form-12 .form-12-content {
-  background: url("../images/slider.jpg") no-repeat no-repeat center center;
+  background: url("../images/slider.jpeg") no-repeat no-repeat center center;
   background-size: cover;
   padding: 8rem 0px;
   position: relative;

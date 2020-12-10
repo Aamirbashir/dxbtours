@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="{{ route('payment') }}" class="btn btn-success">Pay $100 from Paypal</a>
                 </div>
             </div>
         </div>

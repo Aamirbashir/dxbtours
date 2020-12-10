@@ -53,10 +53,12 @@
                 <li><a href="#"><span class="fa fa-vimeo"></span></a> </li>
         </div>
         <div class="accounts col-lg-9 col-6">
+
                 <li class="top_li"><span class="fa fa-mobile"></span><a href="tel:+971525170000">+971 52 517 0000</a> </li>
+                  <li class="top_li"><div id="google_translate_element"></div></li>
                 {{-- <li class="top_li1"><a href="#">Login</a></li>
                 <li class="top_li2"><a href="#">Register</a></li> --}}
-                <li class="top_li2"><div id="google_translate_element"></div></li>
+              
         </div>
         
     </header>
@@ -87,7 +89,10 @@
             <a class="nav-link" href="{{route('pages.services',$menu->slug)}}">{{$menu->name}}</a>
           </li>
           @endforeach
-          
+          <li class="nav-item mr-0">
+            <a class="nav-link" href="{{route('pages.contact-us')}}">New Year EVE</a>
+          </li>
+  
           <li class="nav-item mr-0">
             <a class="nav-link" href="{{route('pages.contact-us')}}">Contact</a>
           </li>
@@ -96,4 +101,23 @@
       </div>
     </div>
   </nav>
+
+  <div aria-hidden="true"   id="offdderModal" aria-labelledby="myModalLabel" class="modal fade" id="modalIMG" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-header">
+     
+        <button type="button" class="close" data-dismiss="myModalLabel" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-content">
+        <div class="modal-body mb-0 p-0">
+        <img src="{{asset('public/assets/images/newYearEve.jpg')}}" alt="" style="width:100%">
+        <button class="modalbtn" href="tel:+971525170000">See Offers</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
 </section>

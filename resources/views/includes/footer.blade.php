@@ -177,6 +177,11 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#offerModal').modal('show');
+    });
+</script>
 
 </body>
 

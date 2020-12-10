@@ -61,6 +61,8 @@
 </div>
 <!-- content-with-photo4 block -->
 <section class="w3l-content-with-photo-4" id="about">
+    @include('includes.flash')
+    @stack('header-flash')
     <div id="content-with-photo4-block" class="py-5"> 
       
         <div class="container py-md-18">
@@ -71,7 +73,7 @@
   <div class="carousel-inner">
     @foreach ($product->gallery() as $key=>$item)
     <div class="carousel-item <?php if($key==0) echo 'active';?>">
-     <img src="{{asset('storage/app/'.$item->imageUrl)}}" class="img-fluid" alt="" />
+     <img src="{{asset('storage/app/'.$item->imageUrl)}}" class="img-fluid-prod" alt="" />
     </div>
      @endforeach
   </div>
@@ -85,7 +87,7 @@
   </a>
 </div>
 @else
-<img src="{{ $product->logoFile ? route('get-file',['id' => \Illuminate\Support\Facades\Crypt::encrypt($product->logoFile->id)]) : 'https://via.placeholder.com/150' }}" class="img-fluid" alt="" />
+<img src="{{ $product->logoFile ? route('get-file',['id' => \Illuminate\Support\Facades\Crypt::encrypt($product->logoFile->id)]) : 'https://via.placeholder.com/150' }}" class="img-fluid-prod" alt="" />
 @endif
 <div class="reviews"
   <span class="heading">Reviews(<?php echo rand(1,1000); ?>)</span>
@@ -108,15 +110,18 @@
                         $price=round($product->product_price-($product->product_price*$product->discount_price/100));
                         $kidsprice=round($product->kids_price-($product->kids_price*$product->discount_price/100));
                         ?>
-                        <?php echo $price?>/{{$product->price_criteria}}</span>
+                        <?php echo $price?>/{!!$product->price_criteria!!}</span>
                       <?php 
                       if($product->price_criteria=='Person')
-                      $product->price_criteria='Adult';
+                          $product->price_criteria='Adult';
+                   
                       ?>
+                    
                     </li>
-                    <form action="gasdfa">
+                    <form action="{{route('pages.postBooking')}}" method="get">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                      
+                      <input type="hidden" name="service_name" value="{{$product->name}}">
+                        <input type="hidden" name="service_id" value="{{$product->id}}">
                       <div class="form-inline">
                         <label for="inlineFormEmail" class="labl">{{$product->price_criteria}}:</label>
                         <input type="number"  value="1" class="form-control m-2 form-quantitiy"  name="adultNumber" id="adultNumber">
@@ -126,7 +131,10 @@
                     </li>
                     @if($product->kids_price==0)
                   <?php  $display='none !important';?>
+                  @else
+                   <?php  $ddisplay='none !important';?>
                     @endif
+                    
                     <div class="kidsSection" style="display:<?php echo $display ?? ''?>">
                   <li class="list-group-item d-flex justify-content-between lh-condensed" >
                       <div class="form-inline">
@@ -152,10 +160,12 @@
                       <input type="hidden" id="totalPrice" name="totalPrice" value="">
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                     <input type="submit" class="btn btn-secondary btn-theme3 mt-3" value="Book Now" type="submit">
+
+                     <input type="submit" style="display:<?php echo $display ?? ''?>"   class="btn btn-secondary btn-theme3 mt-3" value="Book Now" type="submit">
                         
-                 
-                      {{-- <a class="btn btn-secondary btn-theme3 mt-3" onclick="WhatsAppBooking('{!!$product->name!!}','{!!$product->price_criteria!!}')"><span class="fa fa-whatsapp"></span>Whatsapp</a> --}}
+                        @if($product->kids_price==0)
+                       <a style="color: #fff" style="display:<?php echo $ddisplay ?? ''?>" class="btn btn-secondary btn-theme3 mt-3" onclick="WhatsAppBooking('{!!$product->name!!}','{!!$product->price_criteria!!}')"><span class="fa fa-whatsapp"></span> Check Availability</a>
+                        @endif
                     </li>
                   </form>   
                   </ul>
@@ -171,12 +181,11 @@
                  
                
             </div>  
-            <div class="row locations-1">
-                <div class="cwp4-text col-md-8" >
-                   
-               
-                    <h5>Offers Includes:</h5>
+            <div class="cwp4-two">
+                <div class="cwp4-text col-lg-12" >
+                     Offer Includes
                     <hr>
+                
                     {!!$product->long_description!!}
           
     
@@ -184,44 +193,7 @@
                     <a class="btn btn-secondary btn-theme3 mt-3" target="_blank" href="https://api.whatsapp.com/send?phone=971525170000&text=I want to know more about {{$product->name}}"><span class="fa fa-whatsapp"></span> Whatsapp</a>
                     <a class="btn btn-secondary btn-theme3 mt-3" href="tel:+971525170000"><span class="fa fa-phone"></span> Call</a>
                 </div>
-                <div class="col-md-4 ">
-                 
-                  <h5>See Also</h5>
-                  <hr>
-                  @foreach (App\products::where('id','!=',$product->id)->limit(3)->get() as $Mainkey=>$item)
-                      
-                 
-                
-                  <div class="grids-4">
-                
-  
-                          <a href="{{route('pages.products',$item->product_slug)}}"><img src="{{ $item->logoFile ? route('get-file',['id' => \Illuminate\Support\Facades\Crypt::encrypt($item->logoFile->id)]) : 'https://via.placeholder.com/150' }}')" class="img-responsive" alt=""></a>                    
-  
-                       
-  
-                          <div class="info-bg">
-                              <h5><a href="{{route('pages.products',$item->product_slug)}}">{{$item->name}}</a></h5>
-                              <p>AED <?php if($item->discount_price>0)
-                                echo '<b><s>'.$item->product_price.'</s></b>';
-                                $price=round($item->product_price-($item->product_price*$item->discount_price/100));
-                                ?>
-                                <?php echo $price?> /{{$item->price_criteria}}
-                              
-                              </p>
-                              
-                          
-  <span class="heading">Reviews(<?php echo rand(1,1000); ?>)</span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star"></span>
-                         
-                          </div>
-                      </div>
-                      @endforeach
-
-               </div>
+              
             </div>
         </div>
     </div>
@@ -250,7 +222,8 @@ $("#adultNumber").bind('change', function () {
     var  kidsPrice=Number($('#kidsPrice').val());
     var  kidsTotal=kidsNumber*kidsPrice;
     var  total=adultTotal+kidsTotal;
-     $('#total_label').html(total.toFixed(2));           
+     $('#total_label').html(total.toFixed(2)); 
+      $('#totalPrice').val(total.toFixed(2));          
 });
 $("#kidsNumber").bind('change', function () {
   if($('#kidsNumber').val()<0)
@@ -263,7 +236,8 @@ $("#kidsNumber").bind('change', function () {
     var  kidsPrice=Number($('#kidsPrice').val());
     var  kidsTotal=kidsNumber*kidsPrice;
     var  total=adultTotal+kidsTotal;
-     $('#total_label').html(total.toFixed(2));           
+     $('#total_label').html(total.toFixed(2));  
+      $('#totalPrice').val(total.toFixed(2));         
 });
 function WhatsAppBooking(name,criteria){
   
@@ -275,7 +249,7 @@ function WhatsAppBooking(name,criteria){
     var  kidsTotal=kidsNumber*kidsPrice;
     var  total=adultTotal+kidsTotal;
      $('#total_label').html(total.toFixed(2));  
-   var message=name+'%0aTotal '+criteria+':'+adultNumber+'%0aTotal Kids:'+kidsNumber+'%0aTotal:'+total;
+   var message=name+'%0aTotal '+criteria+':'+adultNumber+'%0aTotal:'+total;
 var win = window.open('https://api.whatsapp.com/send?phone=971525170000&text=I want to Book %0a'+message, '_blank');
 }
 

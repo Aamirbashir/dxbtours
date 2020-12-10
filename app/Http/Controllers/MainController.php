@@ -72,7 +72,7 @@ SEOMeta::setKeywords('yachts price in dubai,yachts rental price, yachts tours , 
     public function singleProduct($slug)
     {
      $product = products::where('product_slug',$slug)->with('logoFile')->first();
-     SEOMeta::setTitle($product->title);
+        SEOMeta::setTitle($product->title);
         SEOMeta::setDescription($product->short_description);
         SEOMeta::setCanonical(URL::current());
 
